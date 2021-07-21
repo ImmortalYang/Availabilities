@@ -62,6 +62,7 @@ namespace Availabilities
             container.AddSingleton<IStorage<Availability>, AvailabilityStorage>();
             container.AddSingleton<IStorage<Booking>, BookingStorage>();
             container.AddSingleton<IAvailabilitiesApplication, AvailabilitiesApplication>();
+            container.AddTransient<IAvailabilitiesEditor, AvailabilitiesEditor>();
         }
     }
 }

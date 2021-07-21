@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 
 namespace Availabilities.Other
 {
@@ -14,6 +15,14 @@ namespace Availabilities.Other
         public static bool NotExists(this object value)
         {
             return !value.Exists();
+        }
+        
+        public static void GuardAgainstNull(this object value, string parameterName)
+        {
+            if (value.NotExists())
+            {
+                throw new ArgumentNullException(parameterName);
+            }
         }
     }
 }
